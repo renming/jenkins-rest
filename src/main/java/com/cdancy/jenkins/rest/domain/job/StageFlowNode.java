@@ -25,6 +25,8 @@ import org.jclouds.json.SerializedNames;
 @AutoValue
 public abstract class StageFlowNode {
 
+   public abstract String id();
+
    public abstract String name();
 
    public abstract String status();
@@ -38,8 +40,9 @@ public abstract class StageFlowNode {
    StageFlowNode() {
    }
 
-   @SerializedNames({ "name", "status", "startTimeMillis", "durationTimeMillis", "parentNodes" })
-   public static StageFlowNode create(String name, String status, long startTimeMillis, long durationTimeMillis, List<Long> parentNodes) {
-      return new AutoValue_StageFlowNode(name, status, startTimeMillis, durationTimeMillis, parentNodes);
+   @SerializedNames({ "id", "name", "status", "startTimeMillis", "durationTimeMillis", "parentNodes" })
+   public static StageFlowNode create(String id, String name, String status, long startTimeMillis,
+                                      long durationTimeMillis, List<Long> parentNodes) {
+      return new AutoValue_StageFlowNode(id, name, status, startTimeMillis, durationTimeMillis, parentNodes);
    }
 }

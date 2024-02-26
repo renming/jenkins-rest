@@ -25,6 +25,7 @@ import org.jclouds.json.SerializedNames;
 @AutoValue
 public abstract class Workflow {
 
+   public abstract String id();
    public abstract String name();
 
    public abstract String status();
@@ -38,8 +39,8 @@ public abstract class Workflow {
    Workflow() {
    }
 
-   @SerializedNames({ "name", "status", "startTimeMillis", "durationTimeMillis", "stages" })
-   public static Workflow create(String name, String status, long startTimeMillis, long durationTimeMillis, List<Stage> stages) {
-      return new AutoValue_Workflow(name, status, startTimeMillis, durationTimeMillis, stages);
+   @SerializedNames({ "id", "name", "status", "startTimeMillis", "durationTimeMillis", "stages" })
+   public static Workflow create(String id, String name, String status, long startTimeMillis, long durationTimeMillis, List<Stage> stages) {
+      return new AutoValue_Workflow(id, name, status, startTimeMillis, durationTimeMillis, stages);
    }
 }

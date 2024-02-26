@@ -3,6 +3,8 @@ package com.cdancy.jenkins.rest.domain.job;
 import com.google.auto.value.AutoValue;
 import org.jclouds.json.SerializedNames;
 
+import javax.annotation.Nullable;
+
 @AutoValue
 public abstract class PipelineNodeLog {
 
@@ -14,8 +16,9 @@ public abstract class PipelineNodeLog {
 
     public abstract boolean hasMore();
 
+    @Nullable
     public abstract String text();
-
+    @Nullable
     public abstract String consoleUrl();
 
     PipelineNodeLog() {
